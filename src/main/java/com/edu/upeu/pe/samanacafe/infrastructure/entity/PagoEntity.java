@@ -3,8 +3,16 @@ package com.edu.upeu.pe.samanacafe.infrastructure.entity;
 import jakarta.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "pagos")
 public class PagoEntity {
 
@@ -33,72 +41,5 @@ public class PagoEntity {
     private String transaccionId;
 
 
-    public PagoEntity() {}
-
-    public PagoEntity(Long id, OrdenEntity orden, BigDecimal monto, String metodoPago, EstadoPago estado, LocalDateTime fechaPago, String transaccionId) {
-        this.id = id;
-        this.orden = orden;
-        this.monto = monto;
-        this.metodoPago = metodoPago;
-        this.estado = estado;
-        this.fechaPago = fechaPago;
-        this.transaccionId = transaccionId;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public OrdenEntity getOrden() {
-        return orden;
-    }
-
-    public void setOrden(OrdenEntity orden) {
-        this.orden = orden;
-    }
-
-    public BigDecimal getMonto() {
-        return monto;
-    }
-
-    public void setMonto(BigDecimal monto) {
-        this.monto = monto;
-    }
-
-    public String getMetodoPago() {
-        return metodoPago;
-    }
-
-    public void setMetodoPago(String metodoPago) {
-        this.metodoPago = metodoPago;
-    }
-
-    public EstadoPago getEstado() {
-        return estado;
-    }
-
-    public void setEstado(EstadoPago estado) {
-        this.estado = estado;
-    }
-
-    public LocalDateTime getFechaPago() {
-        return fechaPago;
-    }
-
-    public void setFechaPago(LocalDateTime fechaPago) {
-        this.fechaPago = fechaPago;
-    }
-
-    public String getTransaccionId() {
-        return transaccionId;
-    }
-
-    public void setTransaccionId(String transaccionId) {
-        this.transaccionId = transaccionId;
-    }
 }
 

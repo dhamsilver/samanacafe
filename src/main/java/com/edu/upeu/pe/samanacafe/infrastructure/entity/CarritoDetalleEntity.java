@@ -1,8 +1,16 @@
 package com.edu.upeu.pe.samanacafe.infrastructure.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "carrito_detalles")
 public class CarritoDetalleEntity {
 
@@ -21,25 +29,5 @@ public class CarritoDetalleEntity {
     @Column(nullable = false)
     private Integer cantidad;
 
-    public CarritoDetalleEntity() {}
-
-    public CarritoDetalleEntity(Long id, CarritoEntity carrito, ProductoEntity producto, Integer cantidad) {
-        this.id = id;
-        this.carrito = carrito;
-        this.producto = producto;
-        this.cantidad = cantidad;
-    }
-
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
-
-    public CarritoEntity getCarrito() { return carrito; }
-    public void setCarrito(CarritoEntity carrito) { this.carrito = carrito; }
-
-    public ProductoEntity getProducto() { return producto; }
-    public void setProducto(ProductoEntity producto) { this.producto = producto; }
-
-    public Integer getCantidad() { return cantidad; }
-    public void setCantidad(Integer cantidad) { this.cantidad = cantidad; }
 }
 
