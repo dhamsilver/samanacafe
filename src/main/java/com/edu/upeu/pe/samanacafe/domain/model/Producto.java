@@ -1,43 +1,23 @@
-package com.edu.upeu.pe.samanacafe.infrastructure.entity;
+package com.edu.upeu.pe.samanacafe.domain.model;
 
-import jakarta.persistence.*;
+import com.edu.upeu.pe.samanacafe.infrastructure.entity.Categoria;
 
 import java.math.BigDecimal;
 
-@Entity
-@Table(name = "productos")
-public class ProductoEntity {
+public class Producto {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Column(nullable = false, length = 100)
     private String name;
-
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false, length = 50)
     private Categoria categoria;
-
-    @Column(nullable = true, length = 200)
     private String descripcion;
-
-    @Column(nullable = false, precision = 10, scale = 2)
     private BigDecimal precio;
-
-    @Column(nullable = false)
     private Integer stock;
-
-    // Guardar la imagen como BLOB
-    @Lob
-    @Basic(fetch = FetchType.LAZY) // Para no cargarla siempre
-    @Column(name = "imagen", columnDefinition = "LONGBLOB")
     private byte[] imagen;
 
-    public ProductoEntity() {}
+    public Producto() {}
 
-    public ProductoEntity(Long id, String name, Categoria categoria, String descripcion,
-                          BigDecimal precio, Integer stock, byte[] imagen) {
+    public Producto(Long id, String name, Categoria categoria, String descripcion,
+                    BigDecimal precio, Integer stock, byte[] imagen) {
         this.id = id;
         this.name = name;
         this.categoria = categoria;

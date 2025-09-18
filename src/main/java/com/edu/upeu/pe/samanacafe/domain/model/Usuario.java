@@ -1,53 +1,31 @@
-package com.edu.upeu.pe.samanacafe.infrastructure.entity;
+package com.edu.upeu.pe.samanacafe.domain.model;
 
-import jakarta.persistence.*;
+import com.edu.upeu.pe.samanacafe.infrastructure.entity.Role;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
-@Table (name = "usuarios")
+public class Usuario {
 
-public class UsuarioEntity {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Column(nullable = true, length = 100)
     private String name;
-
-    @Column(nullable = true, length = 100)
-    private String last_name;
-
-    @Column(nullable = false, length = 50, unique = true)
+    private String lastName;
     private String email;
-
-    @Column(nullable = false, length = 100)
     private String password;
-
-    @Column(nullable = false, length = 8, unique = true)
     private String dni;
-
-    @Column(nullable = false, length = 9, unique = true)
     private String celular;
-
-    @Enumerated(EnumType.STRING)
     private Role role;
+    private List<Direccion> direcciones;
+    private List<Carrito> carritos = new ArrayList<>();
 
-    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-    private List<DireccionEntity> direcciones = new ArrayList<>();
 
-    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<CarritoEntity> carritos = new ArrayList<>();
-
-    public UsuarioEntity() {
+    public Usuario() {
     }
 
-    public UsuarioEntity(Long id, String name, String last_name, String email, String password, String dni, String celular, Role role, List<DireccionEntity> direcciones, List<CarritoEntity> carritos) {
+    public Usuario(Long id, String name, String lastName, String email, String password, String dni, String celular, Role role, List<Direccion> direcciones, List<Carrito> carritos) {
         this.id = id;
         this.name = name;
-        this.last_name = last_name;
+        this.lastName = lastName;
         this.email = email;
         this.password = password;
         this.dni = dni;
@@ -73,12 +51,12 @@ public class UsuarioEntity {
         this.name = name;
     }
 
-    public String getLast_name() {
-        return last_name;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setLast_name(String last_name) {
-        this.last_name = last_name;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getEmail() {
@@ -121,19 +99,19 @@ public class UsuarioEntity {
         this.role = role;
     }
 
-    public List<DireccionEntity> getDirecciones() {
+    public List<Direccion> getDirecciones() {
         return direcciones;
     }
 
-    public void setDirecciones(List<DireccionEntity> direcciones) {
+    public void setDirecciones(List<Direccion> direcciones) {
         this.direcciones = direcciones;
     }
 
-    public List<CarritoEntity> getCarritos() {
+    public List<Carrito> getCarritos() {
         return carritos;
     }
 
-    public void setCarritos(List<CarritoEntity> carritos) {
+    public void setCarritos(List<Carrito> carritos) {
         this.carritos = carritos;
     }
 }
